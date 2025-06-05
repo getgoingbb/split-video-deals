@@ -4,7 +4,7 @@ import { Video } from "@/pages/Index";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Play, Clock, ShoppingCart, ExternalLink } from "lucide-react";
+import { Play, Clock, ShoppingCart, ExternalLink, Youtube } from "lucide-react";
 
 interface VideoCardProps {
   video: Video;
@@ -17,6 +17,12 @@ const VideoCard = ({ video, onAddToCart }: VideoCardProps) => {
   const handlePayhipRedirect = () => {
     if (video.payhipUrl) {
       window.open(video.payhipUrl, '_blank');
+    }
+  };
+
+  const handleYouTubePreview = () => {
+    if (video.youtubePreviewUrl) {
+      window.open(video.youtubePreviewUrl, '_blank');
     }
   };
 
@@ -52,6 +58,19 @@ const VideoCard = ({ video, onAddToCart }: VideoCardProps) => {
               <Play className="w-8 h-8 text-blue-600" fill="currentColor" />
             </div>
           </div>
+          {video.youtubePreviewUrl && (
+            <div className="absolute top-4 right-4">
+              <Button
+                onClick={handleYouTubePreview}
+                size="sm"
+                variant="secondary"
+                className="bg-red-600 hover:bg-red-700 text-white border-0"
+              >
+                <Youtube className="w-4 h-4 mr-1" />
+                Preview
+              </Button>
+            </div>
+          )}
         </div>
       </CardHeader>
       
@@ -59,14 +78,14 @@ const VideoCard = ({ video, onAddToCart }: VideoCardProps) => {
         <h3 className="text-xl font-bold mb-2 text-gray-900 group-hover:text-blue-600 transition-colors">
           {video.title}
         </h3>
-        <p className="text-gray-600 text-sm leading-relaxed mb-4">
+        <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-4">
           {video.description}
         </p>
         <div className="flex items-center justify-between">
           <span className="text-2xl font-bold text-blue-600">
             ${video.price}
           </span>
-          <span className="text-sm text-gray-500">One-time purchase</span>
+          <span className="text-sm text-gray-500">Instant Download</span>
         </div>
       </CardContent>
       
@@ -87,6 +106,17 @@ const VideoCard = ({ video, onAddToCart }: VideoCardProps) => {
           >
             <ExternalLink className="w-4 h-4 mr-2" />
             Buy on Payhip
+          </Button>
+        )}
+        
+        {video.youtubePreviewUrl && (
+          <Button
+            onClick={handleYouTubePreview}
+            variant="outline"
+            className="w-full border-red-200 text-red-600 hover:bg-red-50 transition-colors"
+          >
+            <Youtube className="w-4 h-4 mr-2" />
+            Watch Preview
           </Button>
         )}
       </CardFooter>

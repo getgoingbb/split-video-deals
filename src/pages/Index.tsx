@@ -14,6 +14,7 @@ export interface Video {
   duration: string;
   category: string;
   payhipUrl?: string;
+  youtubePreviewUrl?: string;
 }
 
 const Index = () => {
@@ -23,23 +24,25 @@ const Index = () => {
   const videos: Video[] = [
     {
       id: "1",
-      title: "Advanced React Patterns",
-      description: "Master advanced React patterns including render props, compound components, and custom hooks. Perfect for developers looking to level up their React skills.",
-      price: 49.99,
-      thumbnail: "/placeholder.svg",
-      duration: "2h 30m",
-      category: "Web Development",
-      payhipUrl: "https://payhip.com/your-product-1"
+      title: "Never Leave The Playground Active Play Video",
+      description: "Boost Your Brain and Health with Simple Games: Improve Attention and Metabolism. Are you looking to enhance your mental acuity and overall well-being? Join us in this engaging video as we introduce a program of simple yet effective games that can significantly benefit your attention span, metabolism, and brain function. By the end of this video, you'll have practical tools to not only sharpen your mind but also support a healthier lifestyle.",
+      price: 9.95,
+      thumbnail: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=500&h=300&fit=crop",
+      duration: "45 min",
+      category: "Health & Wellness",
+      payhipUrl: "https://payhip.com/your-product-1",
+      youtubePreviewUrl: "https://youtu.be/kxFTnQadcPw"
     },
     {
       id: "2", 
-      title: "Modern CSS Techniques",
-      description: "Learn cutting-edge CSS techniques including Grid, Flexbox, animations, and responsive design. Transform your frontend development skills.",
-      price: 39.99,
-      thumbnail: "/placeholder.svg", 
-      duration: "1h 45m",
-      category: "Web Design",
-      payhipUrl: "https://payhip.com/your-product-2"
+      title: "The 5 In One Juggling Uni-cycling Tight Rope Knife Throwing Video",
+      description: "Learn Juggling, Uni-Cycling, Tight Rope Walking and More! This 58-minute digital video is packed with five different activities that are both fun and challenging. Stephen Jepson teaches juggling, uni cycling, knife throwing, balancing on a loose rope, and tight rope walking. Whether you want to learn how to juggle, improve your balance, or try your hand at some fun activities, this instructional video is informative and fun.",
+      price: 19.95,
+      thumbnail: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=500&h=300&fit=crop", 
+      duration: "58 min",
+      category: "Skills & Activities",
+      payhipUrl: "https://payhip.com/your-product-2",
+      youtubePreviewUrl: "https://youtu.be/ll6aoSmWzKY"
     }
   ];
 
@@ -64,9 +67,9 @@ const Index = () => {
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div>
             <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              VideoHub Pro
+              Never Leave The Playground
             </h1>
-            <p className="text-sm text-gray-600">Premium Video Courses</p>
+            <p className="text-sm text-gray-600">Health & Wellness Video Collection</p>
           </div>
           <Button
             onClick={() => setIsCartOpen(true)}
@@ -88,24 +91,24 @@ const Index = () => {
       <section className="container mx-auto px-4 py-16 text-center">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-            Master Your Skills
+            Never Leave The Playground
           </h2>
           <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-            Discover premium video courses designed to accelerate your learning journey. 
-            Expert-crafted content with lifetime access.
+            Discover engaging video programs designed to boost your brain health, improve your metabolism, 
+            and teach you exciting new skills. From active play to juggling and beyond!
           </p>
           <div className="flex justify-center space-x-8 text-sm text-gray-600">
             <div className="flex items-center">
               <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-              Lifetime Access
+              Instant Download
             </div>
             <div className="flex items-center">
               <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
-              HD Quality
+              HD Quality MP4
             </div>
             <div className="flex items-center">
               <div className="w-2 h-2 bg-purple-500 rounded-full mr-2"></div>
-              Expert Content
+              Expert Instruction
             </div>
           </div>
         </div>
@@ -126,7 +129,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="bg-white/80 backdrop-blur-sm border-t border-gray-200 mt-20">
         <div className="container mx-auto px-4 py-8 text-center text-gray-600">
-          <p>&copy; 2024 VideoHub Pro. All rights reserved.</p>
+          <p>&copy; 2024 Never Leave The Playground. All rights reserved.</p>
           <p className="text-sm mt-2">Revenue automatically split 50/50 between partners</p>
         </div>
       </footer>
