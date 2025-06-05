@@ -37,7 +37,7 @@ const Index = () => {
       id: "2", 
       title: "The 5 In One Juggling Uni-cycling Tight Rope Knife Throwing Video",
       description: "Learn Juggling, Uni-Cycling, Tight Rope Walking and More! This 58-minute digital video is packed with five different activities that are both fun and challenging. Stephen Jepson teaches juggling, uni cycling, knife throwing, balancing on a loose rope, and tight rope walking. Whether you want to learn how to juggle, improve your balance, or try your hand at some fun activities, this instructional video is informative and fun.",
-      price: 19.95,
+      price: 9.95,
       thumbnail: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=500&h=300&fit=crop", 
       duration: "58 min",
       category: "Skills & Activities",
@@ -97,6 +97,10 @@ const Index = () => {
             Discover engaging video programs designed to boost your brain health, improve your metabolism, 
             and teach you exciting new skills. From active play to juggling and beyond!
           </p>
+          <div className="bg-yellow-100 border border-yellow-300 rounded-lg p-4 mb-8 max-w-md mx-auto">
+            <p className="text-yellow-800 font-semibold">Special Offer!</p>
+            <p className="text-yellow-700 text-sm">Buy both videos and get 50% off the second one</p>
+          </div>
           <div className="flex justify-center space-x-8 text-sm text-gray-600">
             <div className="flex items-center">
               <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
