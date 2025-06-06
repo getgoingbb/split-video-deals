@@ -93,7 +93,7 @@ const Index = () => {
       <section className="container mx-auto px-4 py-16 text-center">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-            Never Leave The Playground
+            Never Leave The Playground- Videos
           </h2>
           <p className="text-xl text-gray-700 mb-8 leading-relaxed">
             Discover engaging video programs designed to boost your brain health, improve your metabolism, 
@@ -135,8 +135,8 @@ const Index = () => {
       {/* Footer */}
       <footer className="bg-white/80 backdrop-blur-sm border-t border-gray-200 mt-20">
         <div className="container mx-auto px-4 py-8 text-center text-gray-600">
-          <p>&copy; 2024 Never Leave The Playground. All rights reserved.</p>
-          <p className="text-sm mt-2">Revenue automatically split 50/50 between partners</p>
+          <p>&copy; 2025 Never Leave The Playground. All rights reserved.</p>
+          <p className="text-sm mt-2">Let's Start Playing!s</p>
         </div>
       </footer>
     </div>
