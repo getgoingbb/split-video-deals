@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import VideoShowcase from "@/components/VideoShowcase";
 import ShoppingCart from "@/components/ShoppingCart";
@@ -28,7 +27,7 @@ const Index = () => {
       title: "Never Leave The Playground Active Play Video",
       description: "Boost Your Brain and Health with Simple Games: Improve Attention and Metabolism. Are you looking to enhance your mental acuity and overall well-being? Join us in this engaging video as we introduce a program of simple yet effective games that can significantly benefit your attention span, metabolism, and brain function. By the end of this video, you'll have practical tools to not only sharpen your mind but also support a healthier lifestyle.",
       price: 9.95,
-      thumbnail: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=500&h=300&fit=crop",
+      thumbnail: "/lovable-uploads/66560075-1ea0-4358-be82-45ac0bf42807.png",
       duration: "45 min",
       category: "Health & Wellness",
       payhipUrl: "https://payhip.com/b/Mgw7n",
@@ -40,7 +39,7 @@ const Index = () => {
       title: "The 5 In One Juggling Uni-cycling Tight Rope Knife Throwing Video",
       description: "Learn Juggling, Uni-Cycling, Tight Rope Walking and More! This 58-minute digital video is packed with five different activities that are both fun and challenging. Stephen Jepson teaches juggling, uni cycling, knife throwing, balancing on a loose rope, and tight rope walking. Whether you want to learn how to juggle, improve your balance, or try your hand at some fun activities, this instructional video is informative and fun.",
       price: 9.95,
-      thumbnail: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=500&h=300&fit=crop", 
+      thumbnail: "/lovable-uploads/54d70045-2538-4367-a07d-3bdc36c85ce4.png", 
       duration: "58 min",
       category: "Skills & Activities",
       payhipUrl: "https://payhip.com/b/jK30s",
