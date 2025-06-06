@@ -14,6 +14,7 @@ export interface Video {
   duration: string;
   category: string;
   payhipUrl?: string;
+  payhipProductId?: string;
   youtubePreviewUrl?: string;
 }
 
@@ -30,7 +31,8 @@ const Index = () => {
       thumbnail: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=500&h=300&fit=crop",
       duration: "45 min",
       category: "Health & Wellness",
-      payhipUrl: "https://payhip.com/your-product-1",
+      payhipUrl: "https://payhip.com/b/Mgw7n",
+      payhipProductId: "Mgw7n",
       youtubePreviewUrl: "https://youtu.be/kxFTnQadcPw"
     },
     {
@@ -41,7 +43,8 @@ const Index = () => {
       thumbnail: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?w=500&h=300&fit=crop", 
       duration: "58 min",
       category: "Skills & Activities",
-      payhipUrl: "https://payhip.com/your-product-2",
+      payhipUrl: "https://payhip.com/b/jK30s",
+      payhipProductId: "jK30s",
       youtubePreviewUrl: "https://youtu.be/ll6aoSmWzKY"
     }
   ];

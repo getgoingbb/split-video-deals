@@ -4,7 +4,7 @@ import { Video } from "@/pages/Index";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Play, Clock, ShoppingCart, ExternalLink, Youtube } from "lucide-react";
+import { Play, Clock, ShoppingCart, Youtube } from "lucide-react";
 
 interface VideoCardProps {
   video: Video;
@@ -13,12 +13,6 @@ interface VideoCardProps {
 
 const VideoCard = ({ video, onAddToCart }: VideoCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
-
-  const handlePayhipRedirect = () => {
-    if (video.payhipUrl) {
-      window.open(video.payhipUrl, '_blank');
-    }
-  };
 
   const handleYouTubePreview = () => {
     if (video.youtubePreviewUrl) {
@@ -98,15 +92,13 @@ const VideoCard = ({ video, onAddToCart }: VideoCardProps) => {
           Add to Cart
         </Button>
         
-        {video.payhipUrl && (
-          <Button
-            onClick={handlePayhipRedirect}
-            variant="outline"
-            className="w-full border-blue-200 text-blue-600 hover:bg-blue-50 transition-colors"
-          >
-            <ExternalLink className="w-4 h-4 mr-2" />
-            Buy on Payhip
-          </Button>
+        {video.payhipProductId && (
+          <div 
+            className="w-full"
+            dangerouslySetInnerHTML={{
+              __html: `<a href="${video.payhipUrl}" class="payhip-buy-button w-full inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-blue-200 bg-background hover:bg-blue-50 hover:text-accent-foreground h-10 px-4 py-2 text-blue-600" data-theme="blue" data-product="${video.payhipProductId}">Buy Now on Payhip</a>`
+            }}
+          />
         )}
         
         {video.youtubePreviewUrl && (
