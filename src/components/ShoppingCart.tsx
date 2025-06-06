@@ -19,7 +19,7 @@ const ShoppingCart = ({ isOpen, onClose, items, onRemoveItem, totalPrice }: Shop
     // PayPal integration with 50/50 split
     // In a real implementation, you would integrate with PayPal's API
     // and configure the split payment to two email addresses
-    console.log("Processing PayPal payment with 50/50 split");
+    console.log("Processing PayPal payment");
     console.log("Items:", items);
     console.log("Total:", totalPrice);
     
@@ -103,7 +103,7 @@ const ShoppingCart = ({ isOpen, onClose, items, onRemoveItem, totalPrice }: Shop
                     <span className="text-blue-600">${totalPrice.toFixed(2)}</span>
                   </div>
                   <div className="text-xs text-gray-500 space-y-1">
-                    <p>Revenue Split (50/50):</p>
+                    <p>Start Playing!:</p>
                     <p>• Partner 1: ${splitAmount.toFixed(2)}</p>
                     <p>• Partner 2: ${splitAmount.toFixed(2)}</p>
                   </div>
@@ -118,7 +118,7 @@ const ShoppingCart = ({ isOpen, onClose, items, onRemoveItem, totalPrice }: Shop
                 </Button>
                 
                 <p className="text-xs text-center text-gray-500">
-                  Secure payment processing with automatic revenue splitting
+                  Secure payment processing...
                 </p>
               </div>
             </SheetFooter>
