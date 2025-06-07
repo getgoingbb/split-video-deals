@@ -27,7 +27,7 @@ const Index = () => {
       title: "Never Leave The Playground Active Play Video",
       description: "Boost Your Brain and Health with Simple Games: Improve Attention and Metabolism. Are you looking to enhance your mental acuity and overall well-being? Join us in this engaging video as we introduce a program of simple yet effective games that can significantly benefit your attention span, metabolism, and brain function. By the end of this video, you'll have practical tools to not only sharpen your mind but also support a healthier lifestyle.",
       price: 9.95,
-      thumbnail: "/lovable-uploads/66560075-1ea0-4358-be82-45ac0bf42807.png",
+      thumbnail: "/lovable-uploads/c9c5c0e1-7c40-4b62-bc8e-7a9c5d8e2f3a.png",
       duration: "45 min",
       category: "Health & Wellness",
       payhipUrl: "https://payhip.com/b/Mgw7n",
