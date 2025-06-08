@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import VideoShowcase from "@/components/VideoShowcase";
 import ShoppingCart from "@/components/ShoppingCart";
+import StructuredData from "@/components/StructuredData";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart as CartIcon } from "lucide-react";
 
@@ -48,6 +49,47 @@ const Index = () => {
     }
   ];
 
+  useEffect(() => {
+    // Update page title and meta tags for SEO
+    document.title = "Never Leave The Playground - Health & Wellness Video Collection";
+    
+    // Update meta description
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Discover engaging video programs designed to boost your brain health, improve your metabolism, and teach you exciting new skills. Expert instruction with instant download.');
+    }
+
+    // Add additional meta tags
+    const head = document.head;
+    
+    // Keywords meta tag
+    let keywordsMeta = document.querySelector('meta[name="keywords"]');
+    if (!keywordsMeta) {
+      keywordsMeta = document.createElement('meta');
+      keywordsMeta.setAttribute('name', 'keywords');
+      head.appendChild(keywordsMeta);
+    }
+    keywordsMeta.setAttribute('content', 'brain health, metabolism, juggling, unicycling, active play, health wellness, video courses, skill development');
+
+    // Author meta tag
+    let authorMeta = document.querySelector('meta[name="author"]');
+    if (!authorMeta) {
+      authorMeta = document.createElement('meta');
+      authorMeta.setAttribute('name', 'author');
+      head.appendChild(authorMeta);
+    }
+    authorMeta.setAttribute('content', 'Never Leave The Playground');
+
+    // Canonical URL
+    let canonicalLink = document.querySelector('link[rel="canonical"]');
+    if (!canonicalLink) {
+      canonicalLink = document.createElement('link');
+      canonicalLink.setAttribute('rel', 'canonical');
+      head.appendChild(canonicalLink);
+    }
+    canonicalLink.setAttribute('href', window.location.href);
+  }, []);
+
   const addToCart = (video: Video) => {
     if (!cartItems.find(item => item.id === video.id)) {
       setCartItems([...cartItems, video]);
@@ -63,105 +105,108 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
-      {/* Header */}
-      <header className="bg-white/80 backdrop-blur-sm border-b border-gray-200 sticky top-0 z-40">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div>
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Never Leave The Playground
-            </h1>
-            <p className="text-sm text-gray-600">Health & Wellness Video Collection</p>
+    <>
+      <StructuredData videos={videos} />
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
+        {/* Header */}
+        <header className="bg-white/80 backdrop-blur-sm border-b border-gray-200 sticky top-0 z-40">
+          <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div>
+              <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Never Leave The Playground
+              </h1>
+              <p className="text-sm text-gray-600">Health & Wellness Video Collection</p>
+            </div>
+            <Button
+              onClick={() => setIsCartOpen(true)}
+              variant="outline"
+              className="relative hover:bg-blue-50 transition-colors"
+            >
+              <CartIcon className="w-5 h-5 mr-2" />
+              Cart ({cartItems.length})
+              {cartItems.length > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center">
+                  {cartItems.length}
+                </span>
+              )}
+            </Button>
           </div>
-          <Button
-            onClick={() => setIsCartOpen(true)}
-            variant="outline"
-            className="relative hover:bg-blue-50 transition-colors"
-          >
-            <CartIcon className="w-5 h-5 mr-2" />
-            Cart ({cartItems.length})
-            {cartItems.length > 0 && (
-              <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center">
-                {cartItems.length}
-              </span>
-            )}
-          </Button>
-        </div>
-      </header>
+        </header>
 
-      {/* Hero Section */}
-      <section className="container mx-auto px-4 py-16 text-center">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-            Never Leave The Playground- Videos
-          </h2>
-          <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-            Discover engaging video programs designed to boost your brain health, improve your metabolism, 
-            and teach you exciting new skills. From active play to juggling and beyond!
-          </p>
-          <div className="bg-yellow-100 border border-yellow-300 rounded-lg p-4 mb-8 max-w-md mx-auto">
-            <p className="text-yellow-800 font-semibold">Special Offer!</p>
-            <p className="text-yellow-700 text-sm">Buy both videos and get 50% off the second one</p>
-          </div>
-          <div className="flex justify-center space-x-8 text-sm text-gray-600">
-            <div className="flex items-center">
-              <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-              Instant Download
+        {/* Hero Section */}
+        <section className="container mx-auto px-4 py-16 text-center">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
+              Never Leave The Playground- Videos
+            </h2>
+            <p className="text-xl text-gray-700 mb-8 leading-relaxed">
+              Discover engaging video programs designed to boost your brain health, improve your metabolism, 
+              and teach you exciting new skills. From active play to juggling and beyond!
+            </p>
+            <div className="bg-yellow-100 border border-yellow-300 rounded-lg p-4 mb-8 max-w-md mx-auto">
+              <p className="text-yellow-800 font-semibold">Special Offer!</p>
+              <p className="text-yellow-700 text-sm">Buy both videos and get 50% off the second one</p>
             </div>
-            <div className="flex items-center">
-              <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
-              HD Quality MP4
-            </div>
-            <div className="flex items-center">
-              <div className="w-2 h-2 bg-purple-500 rounded-full mr-2"></div>
-              Expert Instruction
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Video Showcase */}
-      <VideoShowcase videos={videos} onAddToCart={addToCart} />
-
-      {/* Shopping Cart */}
-      <ShoppingCart
-        isOpen={isCartOpen}
-        onClose={() => setIsCartOpen(false)}
-        items={cartItems}
-        onRemoveItem={removeFromCart}
-        totalPrice={getTotalPrice()}
-      />
-
-      {/* Footer */}
-      <footer className="bg-white/80 backdrop-blur-sm border-t border-gray-200 mt-20">
-        <div className="container mx-auto px-4 py-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="flex space-x-8">
-              <a 
-                href="https://neverleavetheplayground.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-600 hover:text-blue-800 transition-colors font-medium"
-              >
-                Home
-              </a>
-              <a 
-                href="https://speaker.neverleavetheplayground.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-600 hover:text-blue-800 transition-colors font-medium"
-              >
-                Learn About Speaking Events
-              </a>
-            </div>
-            <div className="text-center text-gray-600">
-              <p>&copy; 2025 Never Leave The Playground. All rights reserved.</p>
-              <p className="text-sm mt-2">Let's Start Playing!</p>
+            <div className="flex justify-center space-x-8 text-sm text-gray-600">
+              <div className="flex items-center">
+                <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                Instant Download
+              </div>
+              <div className="flex items-center">
+                <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+                HD Quality MP4
+              </div>
+              <div className="flex items-center">
+                <div className="w-2 h-2 bg-purple-500 rounded-full mr-2"></div>
+                Expert Instruction
+              </div>
             </div>
           </div>
-        </div>
-      </footer>
-    </div>
+        </section>
+
+        {/* Video Showcase */}
+        <VideoShowcase videos={videos} onAddToCart={addToCart} />
+
+        {/* Shopping Cart */}
+        <ShoppingCart
+          isOpen={isCartOpen}
+          onClose={() => setIsCartOpen(false)}
+          items={cartItems}
+          onRemoveItem={removeFromCart}
+          totalPrice={getTotalPrice()}
+        />
+
+        {/* Footer */}
+        <footer className="bg-white/80 backdrop-blur-sm border-t border-gray-200 mt-20">
+          <div className="container mx-auto px-4 py-8">
+            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+              <div className="flex space-x-8">
+                <a 
+                  href="https://neverleavetheplayground.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-800 transition-colors font-medium"
+                >
+                  Home
+                </a>
+                <a 
+                  href="https://speaker.neverleavetheplayground.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-800 transition-colors font-medium"
+                >
+                  Learn About Speaking Events
+                </a>
+              </div>
+              <div className="text-center text-gray-600">
+                <p>&copy; 2025 Never Leave The Playground. All rights reserved.</p>
+                <p className="text-sm mt-2">Let's Start Playing!</p>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </>
   );
 };
 
