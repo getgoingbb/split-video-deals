@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import VideoShowcase from "@/components/VideoShowcase";
 import ShoppingCart from "@/components/ShoppingCart";
@@ -117,19 +118,26 @@ const Index = () => {
               </h1>
               <p className="text-sm text-gray-600">Health & Wellness Video Collection</p>
             </div>
-            <Button
-              onClick={() => setIsCartOpen(true)}
-              variant="outline"
-              className="relative hover:bg-blue-50 transition-colors"
-            >
-              <CartIcon className="w-5 h-5 mr-2" />
-              Cart ({cartItems.length})
-              {cartItems.length > 0 && (
-                <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center">
-                  {cartItems.length}
-                </span>
-              )}
-            </Button>
+            <div className="flex items-center space-x-4">
+              <Button
+                onClick={() => setIsCartOpen(true)}
+                variant="outline"
+                className="relative hover:bg-blue-50 transition-colors"
+              >
+                <CartIcon className="w-5 h-5 mr-2" />
+                Cart ({cartItems.length})
+                {cartItems.length > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center">
+                    {cartItems.length}
+                  </span>
+                )}
+              </Button>
+              <img 
+                src="/lovable-uploads/b0871228-9cb5-4837-a70b-13448f52fcf9.png" 
+                alt="Never Leave The Playground Logo" 
+                className="h-12 w-auto"
+              />
+            </div>
           </div>
         </header>
 
