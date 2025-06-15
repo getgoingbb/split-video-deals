@@ -3,8 +3,9 @@ import { useState, useEffect } from "react";
 import VideoShowcase from "@/components/VideoShowcase";
 import ShoppingCart from "@/components/ShoppingCart";
 import StructuredData from "@/components/StructuredData";
-import { Button } from "@/components/ui/button";
-import { ShoppingCart as CartIcon } from "lucide-react";
+import Header from "@/components/Header";
+import HeroSection from "@/components/HeroSection";
+import Footer from "@/components/Footer";
 
 export interface Video {
   id: string;
@@ -109,77 +110,9 @@ const Index = () => {
     <>
       <StructuredData videos={videos} />
       <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50">
-        {/* Header */}
-        <header className="bg-white/80 backdrop-blur-sm border-b border-gray-200 sticky top-0 z-40">
-          <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-            <div className="flex items-center space-x-4">
-              <img 
-                src="/lovable-uploads/6899d407-7792-43de-a96f-7a440c293bf1.png" 
-                alt="Never Leave The Playground Logo" 
-                className="h-12 w-auto"
-              />
-              <div>
-                <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  Never Leave The Playground
-                </h1>
-                <p className="text-sm text-gray-600">Health & Wellness Video Collection</p>
-              </div>
-            </div>
-            <Button
-              onClick={() => setIsCartOpen(true)}
-              variant="outline"
-              className="relative hover:bg-blue-50 transition-colors"
-            >
-              <CartIcon className="w-5 h-5 mr-2" />
-              Cart ({cartItems.length})
-              {cartItems.length > 0 && (
-                <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center">
-                  {cartItems.length}
-                </span>
-              )}
-            </Button>
-          </div>
-        </header>
-
-        {/* Hero Section */}
-        <section className="container mx-auto px-4 py-16 text-center">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-              Never Leave The Playground- Videos
-            </h2>
-            <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-              Discover engaging video programs designed to boost your brain health, improve your metabolism, 
-              and teach you exciting new skills. From active play to juggling and beyond!
-            </p>
-            <div className="bg-red-100 border border-red-300 rounded-lg p-6 mb-8 max-w-2xl mx-auto">
-              <p className="text-red-800 font-bold text-xl mb-2">TODAY ONLY!</p>
-              <p className="text-red-700 text-lg mb-2">$1 for the Play Video</p>
-              <p className="text-red-600 font-semibold">Coupon Code: QRZ81RA0FZ</p>
-              <p className="text-red-700 text-lg mb-2 mt-3">The 5 in One $1 Today</p>
-              <p className="text-red-600 font-semibold">Coupon Code: T5ZZJPL1KQ</p>
-              <p className="text-red-800 font-bold text-lg mt-3">HAPPY PLAYING!</p>
-            </div>
-            <div className="flex justify-center space-x-8 text-sm text-gray-600">
-              <div className="flex items-center">
-                <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-                Instant Download
-              </div>
-              <div className="flex items-center">
-                <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
-                HD Quality MP4
-              </div>
-              <div className="flex items-center">
-                <div className="w-2 h-2 bg-purple-500 rounded-full mr-2"></div>
-                Expert Instruction
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Video Showcase */}
+        <Header cartItems={cartItems} onCartOpen={() => setIsCartOpen(true)} />
+        <HeroSection />
         <VideoShowcase videos={videos} onAddToCart={addToCart} />
-
-        {/* Shopping Cart */}
         <ShoppingCart
           isOpen={isCartOpen}
           onClose={() => setIsCartOpen(false)}
@@ -187,36 +120,7 @@ const Index = () => {
           onRemoveItem={removeFromCart}
           totalPrice={getTotalPrice()}
         />
-
-        {/* Footer */}
-        <footer className="bg-white/80 backdrop-blur-sm border-t border-gray-200 mt-20">
-          <div className="container mx-auto px-4 py-8">
-            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <div className="flex space-x-8">
-                <a 
-                  href="https://neverleavetheplayground.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 hover:text-blue-800 transition-colors font-medium"
-                >
-                  Home
-                </a>
-                <a 
-                  href="https://speaker.neverleavetheplayground.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 hover:text-blue-800 transition-colors font-medium"
-                >
-                  Learn About Speaking Events
-                </a>
-              </div>
-              <div className="text-center text-gray-600">
-                <p>&copy; 2025 Never Leave The Playground. All rights reserved.</p>
-                <p className="text-sm mt-2">Let's Start Playing!</p>
-              </div>
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </div>
     </>
   );
