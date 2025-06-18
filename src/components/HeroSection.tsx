@@ -11,7 +11,7 @@ const HeroSection = () => {
           and teach you exciting new skills. From active play to juggling and beyond!
         </p>
         <div className="bg-red-100 border border-red-300 rounded-lg p-6 mb-8 max-w-2xl mx-auto">
-          <p className="text-red-800 font-bold text-xl mb-2">TODAY ONLY!</p>
+          {/* <p className="text-red-800 font-bold text-xl mb-2">TODAY ONLY!</p> */}
           <p className="text-red-700 text-lg mb-2">$1 for the Play Video</p>
           <p className="text-red-600 font-semibold">Coupon Code: QRZ81RA0FZ</p>
           <p className="text-red-700 text-lg mb-2 mt-3">The 5 in One $1 Today</p>
