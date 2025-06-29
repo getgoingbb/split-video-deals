@@ -1,4 +1,5 @@
 
+
 const HeroSection = () => {
   return (
     <section className="container mx-auto px-4 py-16 text-center">
@@ -24,10 +25,6 @@ const HeroSection = () => {
             Instant Download
           </div>
           <div className="flex items-center">
-            <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
-            HD Quality MP4
-          </div>
-          <div className="flex items-center">
             <div className="w-2 h-2 bg-purple-500 rounded-full mr-2"></div>
             Expert Instruction
           </div>
@@ -38,3 +35,4 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+
